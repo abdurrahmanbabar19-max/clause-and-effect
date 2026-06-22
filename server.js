@@ -149,6 +149,138 @@ app.post("/api/review", async (req, res) => {
   }
 });
 
+// =====================================================================
+//  FREE study help — POST /api/explain
+//  A student sends a law module + topic (+ optional notes/question) and
+//  gets it explained in a way that's genuinely easy to understand.
+// =====================================================================
+const EXPLAIN_SCHEMA = {
+  type: "object",
+  properties: {
+    title: { type: "string", description: "Short, clear title of the topic being explained." },
+    inOneLine: { type: "string", description: "The whole topic boiled down to one plain sentence a tired student would understand." },
+    explanation: {
+      type: "string",
+      description: "The main easy explanation. Plain English, warm tutor voice, short sentences. Use blank lines between paragraphs. Build from the simplest idea up.",
+    },
+    analogy: {
+      type: "string",
+      description: "A relatable everyday analogy that makes the concept click. Keep it short.",
+    },
+    keyPoints: {
+      type: "array",
+      description: "The must-know points / definitions for this topic.",
+      items: { type: "string" },
+    },
+    cases: {
+      type: "array",
+      description: "Key cases or statutes for this topic (only real, well-known ones — never invent). Empty array if none apply.",
+      items: {
+        type: "object",
+        properties: {
+          name: { type: "string", description: "Case or statute name, e.g. 'Donoghue v Stevenson [1932]'." },
+          principle: { type: "string", description: "In one plain sentence, what it established and why it matters." },
+        },
+        required: ["name", "principle"],
+        additionalProperties: false,
+      },
+    },
+    essayPlan: {
+      type: "array",
+      description: "A structure/plan for answering an essay or problem question on this topic — headings + what to cover. This is a PLAN and technique, NOT a finished essay to submit.",
+      items: {
+        type: "object",
+        properties: {
+          heading: { type: "string", description: "Section heading, e.g. 'Introduction', 'Issue 1: Duty of care'." },
+          detail: { type: "string", description: "What to actually write/argue in this section, and which cases to cite." },
+        },
+        required: ["heading", "detail"],
+        additionalProperties: false,
+      },
+    },
+    examTips: {
+      type: "array",
+      description: "Practical tips: how to score marks, common mistakes students make, things examiners love.",
+      items: { type: "string" },
+    },
+    disclaimer: {
+      type: "string",
+      description: "One-line reminder: a study aid to aid understanding, always check against their own syllabus/lecturer, and not a substitute for their own work.",
+    },
+  },
+  required: ["title", "inOneLine", "explanation", "keyPoints", "essayPlan", "disclaimer"],
+  additionalProperties: false,
+};
+
+const EXPLAIN_SYSTEM_PROMPT = `You are a warm, brilliant law tutor who makes university law modules genuinely easy to understand. You help LLB and law students who are confused by their chapters and notes.
+
+Default to the law of England & Wales unless the student's notes or question clearly point to another jurisdiction — then follow that.
+
+Your job: take the topic (and any notes the student pastes) and explain it so clearly that a stressed, confused student finally "gets it".
+
+Rules:
+- Teach like the best tutor they ever had: patient, plain English, short sentences, build from the simplest idea upwards. No showing off, no unnecessary jargon — and when you must use a legal term, define it immediately.
+- If the student pastes their own notes/material, base your explanation on THAT — clarify it, fill the gaps, and untangle the confusing bits. Don't ignore what they gave you.
+- Be accurate. Only cite real, well-known cases and statutes. NEVER invent a case, citation, or rule. If you're unsure a case exists, leave it out.
+- Make it stick: use a clear everyday analogy where it helps.
+- ACADEMIC INTEGRITY IS CRITICAL: provide an essay/answer PLAN, structure, and technique — never a finished, submittable essay. You are helping them understand and learn to write it themselves, not doing their coursework for them. If they ask you to "write my essay", give them a strong plan and model structure instead and gently explain why.
+- This is a free study aid to aid understanding. Remind them to always check against their own syllabus and lecturer, and that it doesn't replace their own reading and work.`;
+
+app.post("/api/explain", async (req, res) => {
+  const { subject, topic, question, notes } = req.body || {};
+
+  if (!topic || topic.trim().length < 2) {
+    return res.status(400).json({ error: "Tell me which topic or chapter you'd like explained." });
+  }
+
+  if (!keyConfigured()) {
+    return res.status(503).json({
+      error:
+        "The free explainer is just being switched on — the API key isn't live yet. Check back very soon!",
+    });
+  }
+
+  const userContent =
+    `Module / subject: ${subject || "Not specified"}\n` +
+    `Topic / chapter: ${topic}\n` +
+    `Their specific question: ${question || "None — just explain the topic clearly."}\n\n` +
+    (notes && notes.trim()
+      ? `--- THE STUDENT'S OWN NOTES / MATERIAL (base your explanation on this) ---\n${notes}`
+      : `(No notes pasted — explain the topic from scratch.)`);
+
+  try {
+    const stream = client.messages.stream({
+      model: "claude-opus-4-8",
+      max_tokens: 16000,
+      thinking: { type: "adaptive" },
+      output_config: {
+        effort: "high",
+        format: { type: "json_schema", schema: EXPLAIN_SCHEMA },
+      },
+      system: EXPLAIN_SYSTEM_PROMPT,
+      messages: [{ role: "user", content: userContent }],
+    });
+
+    const final = await stream.finalMessage();
+
+    if (final.stop_reason === "refusal") {
+      return res.status(422).json({
+        error: "Sorry — I couldn't help with that one. Try rephrasing the topic.",
+      });
+    }
+
+    const textBlock = final.content.find((b) => b.type === "text");
+    if (!textBlock) throw new Error("No explanation returned by the model.");
+
+    res.json(JSON.parse(textBlock.text));
+  } catch (err) {
+    console.error("Explain failed:", err);
+    res.status(500).json({
+      error: "Something went wrong generating the explanation. Please try again in a moment.",
+    });
+  }
+});
+
 // Friendly health check
 app.get("/api/health", (_req, res) =>
   res.json({ ok: true, keySet: keyConfigured() })

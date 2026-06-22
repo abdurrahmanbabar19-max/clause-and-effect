@@ -262,6 +262,18 @@ a { color: inherit; }
 .report-cta p { margin: 0 0 .9rem; font-weight: 600; }
 .reviewer-disclaimer { margin-top: 2.5rem; font-size: .82rem; color: var(--ink-soft); line-height: 1.6; text-align: center; }
 
+/* ===== Explainer extras ===== */
+.explain-oneline {
+  font-family: "Cormorant Garamond", serif; font-size: 1.5rem; line-height: 1.35;
+  color: var(--ink); margin: -.6rem 0 1.6rem; font-style: italic;
+}
+.explain-analogy {
+  background: rgba(193,163,95,.1); border: 1px solid rgba(156,124,60,.3);
+  border-radius: var(--radius); padding: 1.2rem 1.4rem; margin: 1.6rem 0;
+}
+.explain-analogy span { display: block; font-weight: 700; color: var(--gold-deep); font-size: .9rem; margin-bottom: .4rem; }
+.explain-analogy p { margin: 0; color: var(--ink); font-size: 1rem; }
+
 /* ===== Scroll reveal ===== */
 .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s cubic-bezier(.22,.61,.36,1); will-change: opacity, transform; }
 .reveal.is-visible { opacity: 1; transform: none; }
