@@ -42,38 +42,59 @@
   <section class="section">
     <div class="container narrow">
       <div class="section-head">
-        <span class="eyebrow">📚 Law, made simple · Free · University of London LLB</span>
-        <h2>Stuck on a law chapter? Let's make it click.</h2>
-        <p>Built for University of London LLB students (and the centres in Pakistan that teach it). Tell me the topic — and paste your own notes if you have them. I'll explain it in plain English, give you the key cases, an essay plan and exam tips, all in line with the UOL syllabus. No cost, no catch. Made by a law student, for law students.</p>
+        <span class="eyebrow">📚 Law, made simple · Free for law students everywhere</span>
+        <h2>Stuck on a law topic? Let's make it click.</h2>
+        <p>Any subject, any university, anywhere in the world — contract, tort, criminal, constitutional, property, company, international law and more. Tell me the topic (and paste your own notes if you have them) and I'll explain it in plain English, with the key cases, an essay plan and exam tips. No cost, no catch. Made by a law student, for law students.</p>
+      </div>
+
+      <!-- Example topics across branches -->
+      <div class="example-chips" aria-label="Example topics">
+        <span class="chips-label">Try one:</span>
+        <button type="button" class="chip" data-subject="Contract Law" data-topic="Offer and acceptance">Offer &amp; acceptance</button>
+        <button type="button" class="chip" data-subject="Criminal Law" data-topic="Mens rea (the guilty mind)">Mens rea</button>
+        <button type="button" class="chip" data-subject="Tort Law" data-topic="Duty of care in negligence">Duty of care</button>
+        <button type="button" class="chip" data-subject="Constitutional / Public Law" data-topic="Separation of powers">Separation of powers</button>
+        <button type="button" class="chip" data-subject="Property / Land Law" data-topic="Adverse possession">Adverse possession</button>
+        <button type="button" class="chip" data-subject="Company / Corporate Law" data-topic="Lifting the corporate veil">Corporate veil</button>
+        <button type="button" class="chip" data-subject="International Law" data-topic="Sources of international law">Sources of intl law</button>
       </div>
 
       <form class="intake-form" id="explainForm" novalidate>
         <div class="field-row">
-          <label>Module <span class="muted">(University of London LLB)</span>
+          <label>Subject / branch of law <span class="muted">(optional)</span>
             <select name="subject">
-              <option value="">Choose your module (optional)…</option>
+              <option value="">Choose a subject (optional)…</option>
+              <option>Contract Law</option>
+              <option>Tort Law</option>
               <option>Criminal Law</option>
-              <option>Elements of the Law of Contract</option>
-              <option>Law of Tort</option>
-              <option>Public Law (Constitutional &amp; Administrative)</option>
-              <option>Property Law (Land Law)</option>
-              <option>Equity and Trusts</option>
-              <option>Jurisprudence and Legal Theory</option>
-              <option>EU Law</option>
+              <option>Constitutional / Public Law</option>
+              <option>Administrative Law</option>
+              <option>Property / Land Law</option>
+              <option>Equity &amp; Trusts</option>
+              <option>Company / Corporate Law</option>
               <option>Commercial Law</option>
-              <option>Company Law</option>
+              <option>International Law</option>
+              <option>Human Rights Law</option>
               <option>Family Law</option>
               <option>Evidence</option>
-              <option>Other</option>
+              <option>Jurisprudence / Legal Theory</option>
+              <option>Tax Law</option>
+              <option>Environmental Law</option>
+              <option>Other / not sure</option>
             </select>
           </label>
           <label>Topic / chapter <span class="muted">(required)</span>
-            <input type="text" name="topic" required placeholder="e.g. Duty of care, Offer &amp; acceptance, Mens rea…" />
+            <input type="text" name="topic" required placeholder="e.g. Consideration, Judicial review, Actus reus…" />
           </label>
         </div>
-        <label>Your specific question <span class="muted">(optional)</span>
-          <input type="text" name="question" placeholder="e.g. I don't get the difference between direct and oblique intention…" />
-        </label>
+        <div class="field-row">
+          <label>Your specific question <span class="muted">(optional)</span>
+            <input type="text" name="question" placeholder="e.g. What's the difference between direct and oblique intention?" />
+          </label>
+          <label>Country / legal system <span class="muted">(optional — helps me tailor it)</span>
+            <input type="text" name="jurisdiction" placeholder="e.g. UK, Pakistan, India, USA, Nigeria…" />
+          </label>
+        </div>
         <label>Paste your notes or chapter text <span class="muted">(optional — I'll explain these in simple terms)</span>
           <textarea name="notes" rows="8" placeholder="Paste your lecture notes, textbook section or anything you're stuck on. Leave blank and I'll explain the topic from scratch."></textarea>
         </label>

@@ -287,6 +287,16 @@ a { color: inherit; }
 .report-cta p { margin: 0 0 .9rem; font-weight: 600; }
 .reviewer-disclaimer { margin-top: 2.5rem; font-size: .82rem; color: var(--ink-soft); line-height: 1.6; text-align: center; }
 
+/* ===== Example topic chips ===== */
+.example-chips { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; justify-content: center; margin: 0 0 2rem; }
+.chips-label { font-size: .85rem; font-weight: 600; color: var(--ink-soft); margin-right: .2rem; }
+.chip {
+  font: inherit; font-size: .85rem; font-weight: 500; cursor: pointer;
+  padding: .4rem .85rem; border-radius: 999px; border: 1px solid var(--line);
+  background: var(--surface); color: var(--ink); transition: all .18s ease;
+}
+.chip:hover { border-color: var(--accent); color: var(--gold-deep); background: rgba(59,110,240,.06); }
+
 /* ===== Explainer extras ===== */
 .explain-oneline {
   font-family: "Cormorant Garamond", serif; font-size: 1.5rem; line-height: 1.35;

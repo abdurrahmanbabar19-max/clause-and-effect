@@ -14,12 +14,27 @@ document.addEventListener("DOMContentLoaded", () => {
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
   sampleBtn.addEventListener("click", () => {
-    form.elements["subject"].value = "Law of Tort";
+    form.elements["subject"].value = "Tort Law";
     form.elements["topic"].value = "Duty of care in negligence";
-    form.elements["question"].value = "I don't understand how courts decide whether a duty of care exists (Caparo etc).";
+    form.elements["question"].value = "How do courts decide whether a duty of care exists?";
     form.elements["notes"].value = "";
     flash("Example loaded — hit “Explain it simply”.", true);
     form.elements["topic"].scrollIntoView({ behavior: "smooth", block: "center" });
+  });
+
+  // Example topic chips → fill the form
+  document.querySelectorAll(".chip").forEach((chip) => {
+    chip.addEventListener("click", () => {
+      const subj = chip.getAttribute("data-subject") || "";
+      const topic = chip.getAttribute("data-topic") || chip.textContent.trim();
+      if ([...form.elements["subject"].options].some((o) => o.value === subj)) {
+        form.elements["subject"].value = subj;
+      }
+      form.elements["topic"].value = topic;
+      form.elements["question"].value = "";
+      flash(`Loaded “${topic}” — hit “Explain it simply”.`, true);
+      form.elements["topic"].scrollIntoView({ behavior: "smooth", block: "center" });
+    });
   });
 
   form.addEventListener("submit", async (e) => {
@@ -45,6 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
           subject: form.elements["subject"].value,
           topic,
           question: form.elements["question"].value,
+          jurisdiction: form.elements["jurisdiction"].value,
           notes: form.elements["notes"].value,
         }),
       });
