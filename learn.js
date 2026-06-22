@@ -14,9 +14,9 @@ document.addEventListener("DOMContentLoaded", () => {
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
   sampleBtn.addEventListener("click", () => {
-    form.elements["subject"].value = "Tort Law";
-    form.elements["topic"].value = "Duty of care (negligence)";
-    form.elements["question"].value = "I don't understand how courts decide if a duty of care exists.";
+    form.elements["subject"].value = "Law of Tort";
+    form.elements["topic"].value = "Duty of care in negligence";
+    form.elements["question"].value = "I don't understand how courts decide whether a duty of care exists (Caparo etc).";
     form.elements["notes"].value = "";
     flash("Example loaded — hit “Explain it simply”.", true);
     form.elements["topic"].scrollIntoView({ behavior: "smooth", block: "center" });
