@@ -26,10 +26,10 @@ app.use(express.static(__dirname)); // serve index.html, review.html, styles.css
 // Anthropic client — reads ANTHROPIC_API_KEY from the environment (.env)
 const client = new Anthropic();
 
-// Treat the placeholder key from .env.example as "no key set"
+// Treat the placeholder key (from .env.example or the deploy step) as "no key set"
 function keyConfigured() {
   const k = process.env.ANTHROPIC_API_KEY;
-  return Boolean(k) && !k.includes("xxxx");
+  return Boolean(k) && !k.includes("xxxx") && !k.includes("placeholder");
 }
 
 // ---- The shape we force the AI to return, every time ----------------
