@@ -274,6 +274,19 @@ a { color: inherit; }
 .explain-analogy span { display: block; font-weight: 700; color: var(--gold-deep); font-size: .9rem; margin-bottom: .4rem; }
 .explain-analogy p { margin: 0; color: var(--ink); font-size: 1rem; }
 
+/* ===== Cross-promo card ===== */
+.cross-promo {
+  margin-top: 2.6rem; text-align: center;
+  background: var(--ink); color: #efe9dd; border-radius: var(--radius);
+  padding: 2.4rem 2rem; box-shadow: var(--shadow-lg);
+}
+.cross-tag {
+  display: inline-block; font-size: .78rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--gold); background: rgba(193,163,95,.15); padding: .4rem .9rem; border-radius: 999px; margin-bottom: 1rem;
+}
+.cross-promo h3 { font-size: 1.9rem; margin-bottom: .6rem; color: #fff; }
+.cross-promo p { color: #cfc8ba; max-width: 48ch; margin: 0 auto 1.5rem; font-size: 1rem; }
+
 /* ===== Scroll reveal ===== */
 .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s cubic-bezier(.22,.61,.36,1); will-change: opacity, transform; }
 .reveal.is-visible { opacity: 1; transform: none; }
