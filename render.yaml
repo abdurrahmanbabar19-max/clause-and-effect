@@ -1,0 +1,15 @@
+# Render deploy config (Blueprint).
+# On render.com → New → Blueprint → pick this repo, and Render reads this file.
+# You only need to paste in your ANTHROPIC_API_KEY when prompted (it is kept secret).
+services:
+  - type: web
+    name: clause-and-effect
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /
+    autoDeploy: true
+    envVars:
+      - key: ANTHROPIC_API_KEY
+        sync: false   # you set this in the Render dashboard; never committed to git

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Contract Review — Clause &amp; Effect</title>
+  <meta name="description" content="Paste a contract and our AI agent reads every line — plain-English summary, red/amber/green clause flags and what to negotiate." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- ===== Header ===== -->
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a href="index.html" class="brand" aria-label="Clause &amp; Effect home">
+        <span class="brand-mark">C&amp;E</span>
+        <span class="brand-text">Clause&nbsp;&amp;&nbsp;Effect</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html#how">How it works</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="index.html#faq">FAQ</a>
+      </nav>
+      <a href="index.html" class="btn btn-ghost btn-sm">← Back to site</a>
+    </div>
+  </header>
+
+  <!-- ===== Reviewer ===== -->
+  <section class="section">
+    <div class="container narrow">
+      <div class="section-head">
+        <span class="eyebrow">🤖 AI Contract Reviewer</span>
+        <h2>Paste a contract. Get it decoded in seconds.</h2>
+        <p>Our AI agent reads every line and returns a plain-English summary, colour-coded clause flags, and what to push back on. Private — your text is used only to generate this report.</p>
+      </div>
+
+      <form class="intake-form" id="reviewForm" novalidate>
+        <label>Contract type
+          <select name="type">
+            <option value="">Choose one (optional)…</option>
+            <option>Freelance / client agreement</option>
+            <option>Brand / influencer deal</option>
+            <option>Tenancy agreement</option>
+            <option>NDA</option>
+            <option>Co-founder / startup agreement</option>
+            <option>Other</option>
+          </select>
+        </label>
+        <label>What are you worried about? <span class="muted">(optional)</span>
+          <input type="text" name="concerns" placeholder="e.g. the exclusivity clause, who owns the work, payment terms…" />
+        </label>
+        <label>Paste the contract text
+          <textarea name="contractText" rows="12" required placeholder="Paste the full contract here…"></textarea>
+        </label>
+        <div class="review-actions">
+          <button type="submit" class="btn btn-primary" id="runBtn">Run AI review</button>
+          <button type="button" class="btn btn-ghost" id="sampleBtn">Try a sample contract</button>
+        </div>
+        <p class="form-note" id="reviewNote" role="status"></p>
+      </form>
+
+      <!-- Loading -->
+      <div class="review-loading" id="loading" hidden>
+        <div class="spinner" aria-hidden="true"></div>
+        <p>Reading every line…</p>
+      </div>
+
+      <!-- Result -->
+      <div class="review-result" id="result" hidden></div>
+
+      <p class="reviewer-disclaimer">
+        Clause &amp; Effect provides plain-English explanations and education, <strong>not</strong> regulated legal advice,
+        and is not a substitute for a solicitor. For complex or high-value matters, consult a qualified legal professional.
+      </p>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <span class="brand-mark">C&amp;E</span>
+        <p>Clause &amp; Effect — plain-English contract checks, London.</p>
+      </div>
+      <p class="footer-small">© <span id="year"></span> Clause &amp; Effect. Demo concept site.</p>
+    </div>
+  </footer>
+
+  <script src="review.js"></script>
+</body>
+</html>

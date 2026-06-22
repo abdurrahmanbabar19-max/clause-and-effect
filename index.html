@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clause &amp; Effect — Plain-English Contract Checks · London</title>
+  <meta name="description" content="Plain-English contract reviews for freelancers, creators and renters in London. Understand exactly what you're signing — and what to push back on — before you sign." />
+  <meta name="theme-color" content="#1a1a1a" />
+
+  <!-- ===== Social preview (Open Graph + Twitter) ===== -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Clause &amp; Effect" />
+  <meta property="og:title" content="Never sign something you don't fully understand." />
+  <meta property="og:description" content="Plain-English contract checks for freelancers, creators and renters in London. We flag the clauses that could cost you — and exactly what to push back on." />
+  <meta property="og:image" content="og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Never sign something you don't fully understand." />
+  <meta name="twitter:description" content="Plain-English contract checks for freelancers, creators and renters in London." />
+  <meta name="twitter:image" content="og-image.png" />
+
+  <!-- ===== Favicon (inline gold-on-ink C&E mark) ===== -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231a1a1a'/%3E%3Ctext x='50%25' y='50%25' dy='.05em' text-anchor='middle' dominant-baseline='central' font-family='Georgia,serif' font-size='28' font-weight='700' fill='%23c1a35f'%3EC%26E%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- ===== Launch announcement bar ===== -->
+  <a class="announce-bar" href="review.html">
+    🎉 <strong>Launch offer:</strong> free AI contract checks for the first 50 people — claim yours →
+  </a>
+
+  <!-- ===== Header ===== -->
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a href="#top" class="brand" aria-label="Clause &amp; Effect home">
+        <span class="brand-mark">C&amp;E</span>
+        <span class="brand-text">Clause&nbsp;&amp;&nbsp;Effect</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#problem">Why</a>
+        <a href="#how">How it works</a>
+        <a href="#who">Who it's for</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a href="review.html" class="btn btn-primary btn-sm header-cta">🤖 AI contract check</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobileMenu" hidden>
+      <a href="#problem">Why</a>
+      <a href="#how">How it works</a>
+      <a href="#who">Who it's for</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a href="review.html" class="btn btn-primary btn-block">🤖 AI contract check</a>
+    </div>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">Plain-English contract checks · London</span>
+        <h1>Never sign something you don't fully understand.</h1>
+        <p class="lede">Send us the contract. We send back a clear, jargon-free breakdown — what it really means, the clauses that could cost you, and exactly what to push back on. Built for freelancers, creators and renters.</p>
+        <div class="hero-cta">
+          <a href="review.html" class="btn btn-primary">🤖 Try the AI reviewer — free</a>
+          <a href="#how" class="btn btn-ghost">See how it works</a>
+        </div>
+        <ul class="trust-row">
+          <li>⏱️ Plain-English report in 48 hours</li>
+          <li>🔒 Private &amp; confidential</li>
+          <li>📍 London-based</li>
+        </ul>
+      </div>
+
+      <!-- Sample report card -->
+      <div class="hero-art">
+        <div class="report-card" aria-label="Example contract report">
+          <div class="report-top">
+            <span class="report-dot"></span>
+            <span class="report-title">Brand Deal — Summary</span>
+          </div>
+          <p class="report-clause"><span class="hl">"Exclusivity"</span> — you can't work with any competing brand for <strong>12 months</strong>.</p>
+          <div class="flag flag-red"><span>⚑ Red flag</span> 12 months is long &amp; unpaid. Ask to cut to 30 days.</div>
+          <p class="report-clause"><span class="hl">"Usage rights"</span> — they can reuse your content <strong>forever, anywhere</strong>.</p>
+          <div class="flag flag-amber"><span>⚠ Watch</span> Cap this to 6 months &amp; the named campaign.</div>
+          <div class="report-foot"><span class="verdict">Verdict</span> Negotiable — don't sign as-is.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Problem ===== -->
+  <section class="section" id="problem">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">The small print</span>
+        <h2>Contracts are written to confuse you. That's the point.</h2>
+        <p>Dense clauses, hidden obligations, one-sided terms — and a solicitor charges £200+ an hour to explain them. So most people just sign and hope. That's how you end up locked in, underpaid, or liable.</p>
+      </div>
+      <div class="problem-grid">
+        <div class="problem-card"><span class="problem-icon">📉</span><h3>Freelancers</h3><p>Late-payment terms, unlimited revisions, IP you didn't mean to give away.</p></div>
+        <div class="problem-card"><span class="problem-icon">📸</span><h3>Creators</h3><p>Brand deals with forever usage rights, exclusivity traps and vague deliverables.</p></div>
+        <div class="problem-card"><span class="problem-icon">🏠</span><h3>Renters</h3><p>Unfair fees, dodgy deposit clauses and break terms buried on page nine.</p></div>
+        <div class="problem-card"><span class="problem-icon">🤝</span><h3>Small startups</h3><p>NDAs, co-founder splits and supplier terms signed in a rush.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== How it works ===== -->
+  <section class="section section-muted" id="how">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Simple by design</span>
+        <h2>How it works</h2>
+        <p>No jargon, no office visit, no hourly meter running.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><span class="step-num">1</span><h3>Send it over</h3><p>Upload your contract (PDF, Word or photos) and tell us what you're worried about.</p></div>
+        <div class="step"><span class="step-num">2</span><h3>We read every line</h3><p>You get a plain-English summary, a colour-coded list of risky clauses, and what each one means for you.</p></div>
+        <div class="step"><span class="step-num">3</span><h3>You sign with confidence</h3><p>We tell you what to push back on and give you wording to use — so you negotiate from a position of strength.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Who it's for ===== -->
+  <section class="section" id="who">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Who we help</span>
+        <h2>For everyone the legal world ignores</h2>
+        <p>You don't need a £400 contract to deserve to understand it.</p>
+      </div>
+      <div class="who-grid">
+        <article class="who-card"><h3>🎨 Freelancers &amp; designers</h3><p>Client agreements, statements of work, IP and payment terms checked before you commit.</p></article>
+        <article class="who-card"><h3>📱 Content creators</h3><p>Brand deals, agency contracts and collab agreements — know your worth and your rights.</p></article>
+        <article class="who-card"><h3>🏡 Renters &amp; flat-sharers</h3><p>Tenancy agreements decoded, with the fees and clauses to challenge flagged.</p></article>
+        <article class="who-card"><h3>🚀 Student founders</h3><p>NDAs, co-founder and supplier agreements explained so you don't sign away the company.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Pricing ===== -->
+  <section class="section section-muted" id="pricing">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Fair, flat pricing</span>
+        <h2>Pay per contract, or go unlimited</h2>
+        <p>No hourly billing. No surprises. Student &amp; first-contract discounts available.</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="price-card">
+          <h3>Quick Scan</h3>
+          <p class="price">£29<span>/ contract</span></p>
+          <p class="price-sub">Up to 6 pages · 48-hour turnaround</p>
+          <ul>
+            <li>✓ Plain-English summary</li>
+            <li>✓ Red &amp; amber clause flags</li>
+            <li>✓ "What this means for you" notes</li>
+          </ul>
+          <a href="#start" class="btn btn-ghost btn-block">Choose Quick Scan</a>
+        </div>
+        <div class="price-card price-featured">
+          <span class="price-badge">Most popular</span>
+          <h3>Deep Read</h3>
+          <p class="price">£59<span>/ contract</span></p>
+          <p class="price-sub">Any length · 48-hour turnaround</p>
+          <ul>
+            <li>✓ Everything in Quick Scan</li>
+            <li>✓ Negotiation checklist</li>
+            <li>✓ Ready-to-send "ask for this" email</li>
+            <li>✓ One follow-up round</li>
+          </ul>
+          <a href="#start" class="btn btn-primary btn-block">Choose Deep Read</a>
+        </div>
+        <div class="price-card">
+          <h3>Creator Membership</h3>
+          <p class="price">£39<span>/ month</span></p>
+          <p class="price-sub">For people who sign constantly</p>
+          <ul>
+            <li>✓ Up to 4 contracts a month</li>
+            <li>✓ Priority 24-hour turnaround</li>
+            <li>✓ Template library access</li>
+            <li>✓ Cancel anytime</li>
+          </ul>
+          <a href="#start" class="btn btn-ghost btn-block">Start membership</a>
+        </div>
+      </div>
+      <p class="pricing-note">🎓 SQE &amp; student founder? Mention it in your request for a first-contract check on the house.</p>
+    </div>
+  </section>
+
+  <!-- ===== Launch offer band ===== -->
+  <section class="section launch-band">
+    <div class="container narrow launch-inner">
+      <span class="launch-kicker">Launching now</span>
+      <h2>First 50 contract checks — free.</h2>
+      <p>We're building Clause &amp; Effect in public. The first 50 people to use the AI reviewer pay nothing — no card, no catch. All we ask: tell a friend who signs contracts.</p>
+      <a href="review.html" class="btn btn-primary">🤖 Claim your free check</a>
+      <p class="launch-small">Students &amp; first-time founders: your first human review is free too.</p>
+    </div>
+  </section>
+
+  <!-- ===== About / founder ===== -->
+  <section class="section" id="about">
+    <div class="container about-grid">
+      <div class="about-copy">
+        <span class="eyebrow">Why you can trust us</span>
+        <h2>Founded by a law student who got tired of watching friends get caught out.</h2>
+        <p>Clause &amp; Effect is run by an SQE candidate training in London — someone who reads contracts for a living-in-training and believes understanding what you sign shouldn't be a luxury.</p>
+        <p>We translate legalese into language you actually use, flag what matters, and tell you when something is serious enough that you should speak to a qualified solicitor. Honest, clear, and on your side.</p>
+        <div class="stats">
+          <div><strong>48h</strong><span>typical turnaround</span></div>
+          <div><strong>£29</strong><span>starting price</span></div>
+          <div><strong>100%</strong><span>plain English</span></div>
+        </div>
+      </div>
+      <div class="about-art" aria-hidden="true">
+        <div class="quote-card">
+          <p class="quote-mark">“</p>
+          <p class="quote-text">It flagged an exclusivity clause that would've stopped me taking any other brand deals for a year. Saved me thousands.</p>
+          <p class="quote-by">— Maya, content creator, Hackney</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="section section-muted" id="faq">
+    <div class="container narrow">
+      <div class="section-head">
+        <span class="eyebrow">Good questions</span>
+        <h2>FAQ</h2>
+      </div>
+      <div class="faq" id="faqList">
+        <details class="faq-item">
+          <summary>Is this legal advice?</summary>
+          <p>No — and we're upfront about that. Clause &amp; Effect is a plain-English explainer service that helps you <em>understand</em> a contract and spot issues. We don't provide regulated legal advice or represent you. For anything high-stakes or complex, we'll tell you clearly and point you to a qualified solicitor.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How fast will I get my report?</summary>
+          <p>Standard turnaround is 48 hours from when you send the contract. Members and urgent requests can get it within 24 hours.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Is my contract kept private?</summary>
+          <p>Completely. Your documents are confidential, used only to prepare your report, and never shared. You can ask us to delete them once you've got your report.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What types of contracts do you check?</summary>
+          <p>Freelance and client agreements, brand/influencer deals, NDAs, tenancy agreements, supplier and co-founder agreements, and most everyday contracts. If it's outside what we can responsibly help with, we'll tell you before charging anything.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What if I need changes made to the contract?</summary>
+          <p>The Deep Read includes a negotiation checklist and ready-to-send wording so you can request changes yourself. We don't draft binding documents for you, but we make asking for what you want simple.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Do you offer student discounts?</summary>
+          <p>Yes. Students and first-time founders get their first contract check free — just mention it in your request.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Intake / Start ===== -->
+  <section class="section" id="start">
+    <div class="container narrow">
+      <div class="section-head">
+        <span class="eyebrow">Let's do it</span>
+        <h2>Send us your contract</h2>
+        <p>Fill this in and we'll confirm the price and turnaround before any work begins.</p>
+      </div>
+      <form class="intake-form" id="intakeForm" novalidate>
+        <div class="field-row">
+          <label>Your name <input type="text" name="name" required placeholder="Alex Doe" /></label>
+          <label>Email <input type="email" name="email" required placeholder="you@email.com" /></label>
+        </div>
+        <div class="field-row">
+          <label>Contract type
+            <select name="type" required>
+              <option value="">Choose one…</option>
+              <option>Freelance / client agreement</option>
+              <option>Brand / influencer deal</option>
+              <option>Tenancy agreement</option>
+              <option>NDA</option>
+              <option>Co-founder / startup agreement</option>
+              <option>Other</option>
+            </select>
+          </label>
+          <label>Service
+            <select name="service" required>
+              <option value="">Choose one…</option>
+              <option>Quick Scan — £29</option>
+              <option>Deep Read — £59</option>
+              <option>Creator Membership — £39/mo</option>
+              <option>Not sure yet</option>
+            </select>
+          </label>
+        </div>
+        <label>What are you worried about? <textarea name="notes" rows="3" placeholder="e.g. I think the exclusivity clause is too long and I'm not sure who owns the content…"></textarea></label>
+        <label class="file-label">Attach your contract (optional now — you can email it after)
+          <input type="file" name="file" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg" />
+        </label>
+        <label class="checkbox-label">
+          <input type="checkbox" name="consent" required />
+          <span>I understand Clause &amp; Effect provides plain-English explanations, not regulated legal advice.</span>
+        </label>
+        <button type="submit" class="btn btn-primary btn-block">Send request</button>
+        <p class="form-note" id="intakeNote" role="status"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <span class="brand-mark">C&amp;E</span>
+        <p>Clause &amp; Effect — plain-English contract checks, London.</p>
+        <p class="footer-contact">📧 hello@clauseandeffect.co.uk</p>
+      </div>
+      <p class="footer-small">
+        © <span id="year"></span> Clause &amp; Effect. This is a demo site for a student business concept.
+        Clause &amp; Effect provides plain-English explanations and education, <strong>not</strong> regulated legal advice,
+        and is not a substitute for a solicitor. For complex or high-value matters, consult a qualified legal professional.
+      </p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
