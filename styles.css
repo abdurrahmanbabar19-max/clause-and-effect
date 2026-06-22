@@ -79,6 +79,7 @@ a { color: inherit; }
   display: grid; gap: .3rem; padding: 1rem 22px 1.4rem;
   background: rgba(246,244,239,.97); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line);
 }
+.mobile-menu[hidden] { display: none; }
 .mobile-menu a:not(.btn) { text-decoration: none; color: var(--ink); font-weight: 600; font-size: 1.05rem; padding: .7rem 0; border-bottom: 1px solid var(--line); }
 .mobile-menu .btn { margin-top: .8rem; }
 
